@@ -108,8 +108,7 @@ namespace Movies.Api.Controllers
 		[ProducesResponseType(typeof(MovieResponse), StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<IActionResult> DeleteMovie([FromRoute] Guid id, CancellationToken token)
-        {
-            var userId = HttpContext.GetUserId();
+        { 
             var deleted = await _movieService.DeleteMovieByIdAsync(id, token);
 
             if (!deleted)
